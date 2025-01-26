@@ -24,6 +24,6 @@ public class Weapon : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         // Apply the rotation to the sword (Z-axis rotation)
-        transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+        transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle -90));
     }
 }

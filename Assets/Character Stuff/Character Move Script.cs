@@ -31,6 +31,8 @@ public class CharacterMoveScript : MonoBehaviour
     // Handle input for moving left and right
     void HandleInput()
     {
+        Debug.Log("Move left with a and right with d");
+        Debug.Log("Dash with LeftShift");
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             // Move left by decreasing the X position
