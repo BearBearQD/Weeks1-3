@@ -440,7 +440,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 9
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.8475146, a: 1}
+  m_Color: {r: 1, g: 0.87953, b: 0.5235849, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -873,7 +873,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 9
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.8475146, a: 1}
+  m_Color: {r: 1, g: 0.87953, b: 0.5235849, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1905,7 +1905,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 9
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.8475146, a: 1}
+  m_Color: {r: 1, g: 0.87953, b: 0.5235849, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2269,12 +2269,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5b96b9651f550b4aa9394ef8d36e8db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTimerDuration: 5
-  maxTimerDuration: 15
+  minTimerDuration: 15
+  maxTimerDuration: 25
   timerText: {fileID: 1152462247}
   funkyBallPrefab: {fileID: 2279581799017494474, guid: 0d09ec981f692ed459f714a309855d13, type: 3}
-  minBallLifetime: 3
-  maxBallLifetime: 8
+  minBallLifetime: 10
+  maxBallLifetime: 14
 --- !u!1 &1800126489
 GameObject:
   m_ObjectHideFlags: 0
@@ -2615,7 +2615,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 9
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.8475146, a: 1}
+  m_Color: {r: 1, g: 0.87953, b: 0.5235849, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

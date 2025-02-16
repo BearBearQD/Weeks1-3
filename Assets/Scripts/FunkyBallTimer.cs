@@ -96,7 +96,7 @@ public class FunkyBallTimer : MonoBehaviour
         Renderer ballRenderer = ball.GetComponent<Renderer>();
         if (ballRenderer != null)
         {
-            ballRenderer.material.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f); // Random bright color
+            ballRenderer.material.color = ballRenderer.material.color;
         }
 
         // Add bouncy physics (Rigidbody2D)
