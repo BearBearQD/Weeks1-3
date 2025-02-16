@@ -6,9 +6,15 @@ using TMPro; // Include the TextMeshPro namespace
 
 public class FunkyBallTimer : MonoBehaviour
 {
-    public float timerDuration = 10f; // Duration of the timer in seconds
+    [Header("Timer Settings")]
+    public float minTimerDuration = 5f; // Minimum duration of the timer in seconds
+    public float maxTimerDuration = 15f; // Maximum duration of the timer in seconds
     public TMP_Text timerText; // TextMeshPro UI Text to display the timer
+
+    [Header("Funky Ball Settings")]
     public GameObject funkyBallPrefab; // Prefab for the funky ball
+    public float minBallLifetime = 3f; // Minimum lifetime of the funky ball
+    public float maxBallLifetime = 8f; // Maximum lifetime of the funky ball
 
     private float timeRemaining; // Time left on the timer
     private bool timerIsRunning = false; // Whether the timer is active
@@ -29,8 +35,7 @@ public class FunkyBallTimer : MonoBehaviour
         }
 
         // Initialize the timer
-        timeRemaining = timerDuration;
-        timerIsRunning = true;
+        ResetTimer();
     }
 
     void Update()
@@ -68,8 +73,8 @@ public class FunkyBallTimer : MonoBehaviour
         // Spawn the funky ball
         SpawnFunkyBall();
 
-        // Optionally, reset the timer
-        // ResetTimer();
+        // Reset the timer
+        ResetTimer();
     }
 
     void SpawnFunkyBall()
@@ -79,6 +84,10 @@ public class FunkyBallTimer : MonoBehaviour
 
         // Make the ball funky (e.g., add a random color and bouncy physics)
         MakeBallFunky(funkyBall);
+
+        // Set a random lifetime for the funky ball
+        float ballLifetime = Random.Range(minBallLifetime, maxBallLifetime);
+        Destroy(funkyBall, ballLifetime);
     }
 
     void MakeBallFunky(GameObject ball)
@@ -90,26 +99,21 @@ public class FunkyBallTimer : MonoBehaviour
             ballRenderer.material.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f); // Random bright color
         }
 
-        // Add bouncy physics (if using Rigidbody2D or Rigidbody)
+        // Add bouncy physics (Rigidbody2D)
         Rigidbody2D rb2D = ball.GetComponent<Rigidbody2D>();
         if (rb2D != null)
         {
             rb2D.velocity = new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f)); // Random initial velocity
         }
-        else
-        {
-            Rigidbody rb = ball.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                rb.velocity = new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0); // Random initial velocity
-            }
-        }
     }
 
     void ResetTimer()
     {
-        // Reset the timer to its initial duration
-        timeRemaining = timerDuration;
+        // Set a random duration for the timer
+        timeRemaining = Random.Range(minTimerDuration, maxTimerDuration);
         timerIsRunning = true;
+
+        // Update the timer display immediately
+        UpdateTimerDisplay(timeRemaining);
     }
 }

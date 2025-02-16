@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class FunkyBall : MonoBehaviour
 {
-    [Header("Bounce Settings")]
+    [Header("Jolt Settings")]
     public float minForce = 5f; // Minimum force applied to the ball
-    public float maxForce = 10f; // Maximum force applied to the ball
-    public float changeDirectionInterval = 2f; // Time interval to change direction
+    public float maxForce = 15f; // Maximum force applied to the ball
+    public float minInterval = 0.5f; // Minimum time between jolts
+    public float maxInterval = 2f; // Maximum time between jolts
 
     private Rigidbody2D rb2D; // Rigidbody2D component
-    private float timer;
+    private float nextJoltTime; // Time when the next jolt will occur
 
     void Start()
     {
@@ -23,24 +24,21 @@ public class FunkyBall : MonoBehaviour
             return;
         }
 
-        // Apply an initial random force
-        ApplyRandomForce();
+        // Set the initial time for the next jolt
+        SetNextJoltTime();
     }
 
     void Update()
     {
-        // Update the timer
-        timer += Time.deltaTime;
-
-        // Change direction at regular intervals
-        if (timer >= changeDirectionInterval)
+        // Check if it's time to apply a jolt
+        if (Time.time >= nextJoltTime)
         {
-            ApplyRandomForce();
-            timer = 0f; // Reset the timer
+            ApplyRandomJolt();
+            SetNextJoltTime(); // Schedule the next jolt
         }
     }
 
-    void ApplyRandomForce()
+    void ApplyRandomJolt()
     {
         // Generate a random direction
         Vector2 randomDirection = Random.insideUnitCircle.normalized;
@@ -50,5 +48,12 @@ public class FunkyBall : MonoBehaviour
 
         // Apply the force to the ball
         rb2D.AddForce(randomDirection * forceMagnitude, ForceMode2D.Impulse);
+    }
+
+    void SetNextJoltTime()
+    {
+        // Set a random time for the next jolt
+        float interval = Random.Range(minInterval, maxInterval);
+        nextJoltTime = Time.time + interval;
     }
 }

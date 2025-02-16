@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6578333690370314087}
   - component: {fileID: 2106046745122411162}
   - component: {fileID: 4024060425445330633}
+  - component: {fileID: -244183285799327584}
   m_Layer: 0
   m_Name: Funky Ball
   m_TagString: Untagged
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.10815358, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -148,3 +149,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-244183285799327584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2279581799017494474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e959a59430dd8084683fc6168ef33a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minForce: 54.1
+  maxForce: 34.1
+  minInterval: 0.1
+  maxInterval: 0.12
