@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro; // Include the TextMeshPro namespace
 
 public class FunkyBallTimer : MonoBehaviour
 {
     public float timerDuration = 10f; // Duration of the timer in seconds
-    public Text timerText; // UI Text to display the timer
+    public TMP_Text timerText; // TextMeshPro UI Text to display the timer
     public GameObject funkyBallPrefab; // Prefab for the funky ball
 
     private float timeRemaining; // Time left on the timer
@@ -14,10 +15,10 @@ public class FunkyBallTimer : MonoBehaviour
 
     void Start()
     {
-        // Ensure the UI Text and prefab are assigned
+        // Ensure the TextMeshPro Text and prefab are assigned
         if (timerText == null)
         {
-            Debug.LogError("Timer Text is not assigned!");
+            Debug.LogError("Timer Text (TextMeshPro) is not assigned!");
             return;
         }
 
@@ -58,7 +59,7 @@ public class FunkyBallTimer : MonoBehaviour
         int minutes = Mathf.FloorToInt(timeToDisplay / 60);
         int seconds = Mathf.FloorToInt(timeToDisplay % 60);
 
-        // Update the UI Text
+        // Update the TextMeshPro Text
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
